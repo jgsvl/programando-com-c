@@ -27,17 +27,16 @@ int main()
             printf("Jogue de novo, você é um bom jogador!\n");
             break;
         }
+        else if (chute > numeroSecreto)
+        {
+            printf("Você errou! ");
+            printf("O número secreto é menor\n");
+            printf("Mas não desanime, tente novamente!\n");
+        }
         else
         {
             printf("Você errou! ");
-            if (chute > numeroSecreto)
-            {
-                printf("O número secreto é menor\n");
-            }
-            else
-            {
-                printf("O número secreto é maior\n");
-            }
+            printf("O número secreto é maior\n");
             printf("Mas não desanime, tente novamente!\n");
         }
     }
