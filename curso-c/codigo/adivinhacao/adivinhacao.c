@@ -12,23 +12,24 @@ int main()
 
     int numeroSecreto = 42;
     int chute;
-    for (int tentativa = 1; tentativa <= NUMERO_DE_TENTATIVAS; tentativa++)
-    {
-        printf("\nTentativa %d de %d\n", tentativa, NUMERO_DE_TENTATIVAS);
+    int tentativa = 1;
+
+    while (1){
+        printf("\nTentativa %d\n", tentativa);
         printf("Qual é o seu chute? ");
         scanf("%d", &chute);
 
         if (chute < 0){
             printf("Insira somente números não negativos.\n");
-            tentativa--;
             continue;
         }
 
-        printf("Seu chute foi: %d\n", chute);
+        printf("\nSeu chute foi: %d\n", chute);
 
         if (chute == numeroSecreto)
         {
-            printf("Parabéns, você acertou!\n");
+
+            printf("Parabéns, você acertou na %dª tentativa!\n\n", tentativa);
             printf("Jogue de novo, você é um bom jogador!\n");
             break;
         }
@@ -47,8 +48,10 @@ int main()
             }
 
             printf("Mas não desanime, tente novamente!\n");
+            tentativa++;
         }
     }
 
     printf("\nFim de jogo!!\n");
+
 }
