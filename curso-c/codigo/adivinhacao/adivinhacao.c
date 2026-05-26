@@ -1,7 +1,5 @@
 #include <stdio.h>
 
-#define NUMERO_DE_TENTATIVAS 5
-
 int main()
 {
 
