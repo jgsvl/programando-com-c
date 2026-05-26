@@ -1,5 +1,7 @@
 #include <stdio.h>
 
+#define NUMERO_DE_TENTATIVAS 5
+
 int main()
 {
 
@@ -8,13 +10,12 @@ int main()
     printf("* Bem vindo ao nosso jogo de adivinhação *\n");
     printf("******************************************\n");
 
-    
+    //    int tentativa = 0;
     int numeroSecreto = 42;
     int chute;
-    const int numeroDeTentativas = 3;
-    for (int tentativa = 1; tentativa <= numeroDeTentativas; tentativa++)
+    for (int tentativa = 1; tentativa <= NUMERO_DE_TENTATIVAS; tentativa++)
     {
-        printf("\nTentativa %d de %d\n", tentativa, numeroDeTentativas);
+        printf("\nTentativa %d de %d\n", tentativa, NUMERO_DE_TENTATIVAS);
         printf("Qual é o seu chute? ");
         scanf("%d", &chute);
 
@@ -42,5 +43,4 @@ int main()
     }
 
     printf("\nFim de jogo!!\n");
-
 }
