@@ -18,6 +18,12 @@ int main()
         printf("Qual é o seu chute? ");
         scanf("%d", &chute);
 
+        if (chute < 0){
+            printf("Insira somente números não negativos.\n");
+            tentativa--;
+            continue;
+        }
+
         printf("Seu chute foi: %d\n", chute);
 
         if (chute == numeroSecreto)
