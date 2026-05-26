@@ -10,7 +10,6 @@ int main()
     printf("* Bem vindo ao nosso jogo de adivinhação *\n");
     printf("******************************************\n");
 
-    //    int tentativa = 0;
     int numeroSecreto = 42;
     int chute;
     for (int tentativa = 1; tentativa <= NUMERO_DE_TENTATIVAS; tentativa++)
@@ -27,16 +26,20 @@ int main()
             printf("Jogue de novo, você é um bom jogador!\n");
             break;
         }
-        else if (chute > numeroSecreto)
-        {
-            printf("Você errou! ");
-            printf("O número secreto é menor\n");
-            printf("Mas não desanime, tente novamente!\n");
-        }
         else
         {
+            // Se chegou aqui, já sabemos que errou.
             printf("Você errou! ");
-            printf("O número secreto é maior\n");
+
+            if (chute > numeroSecreto)
+            {
+                printf("O número secreto é menor\n");
+            }
+            else
+            {
+                printf("O número secreto é maior\n");
+            }
+
             printf("Mas não desanime, tente novamente!\n");
         }
     }
