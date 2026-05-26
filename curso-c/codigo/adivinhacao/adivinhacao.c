@@ -8,13 +8,13 @@ int main()
     printf("* Bem vindo ao nosso jogo de adivinhação *\n");
     printf("******************************************\n");
 
-    int tentativa = 0;
+    
     int numeroSecreto = 42;
     int chute;
-
-    while (tentativa < 3)
+    const int numeroDeTentativas = 3;
+    for (int tentativa = 1; tentativa <= numeroDeTentativas; tentativa++)
     {
-
+        printf("\nTentativa %d de %d\n", tentativa, numeroDeTentativas);
         printf("Qual é o seu chute? ");
         scanf("%d", &chute);
 
@@ -38,7 +38,9 @@ int main()
                 printf("O número secreto é maior\n");
             }
             printf("Mas não desanime, tente novamente!\n");
-            tentativa++;
         }
     }
+
+    printf("\nFim de jogo!!\n");
+
 }
