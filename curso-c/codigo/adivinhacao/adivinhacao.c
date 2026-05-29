@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 int main()
 {
@@ -38,15 +39,13 @@ int main()
         {
             // Se chegou aqui, já sabemos que errou.
             printf("Você errou! ");
-
+            pontosPerdidos += (abs(chute-numeroSecreto)/2);
             if (chute > numeroSecreto)
             {
-                pontosPerdidos += ((chute-numeroSecreto)/2);
                 printf("O número secreto é menor\n");
             }
             else
             {
-                pontosPerdidos += ((numeroSecreto - chute)/2);
                 printf("O número secreto é maior\n");
             }
 
