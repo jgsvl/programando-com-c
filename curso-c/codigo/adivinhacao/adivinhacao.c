@@ -1,22 +1,48 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <time.h>
 
 int main()
 {
 
-    // imprime cabeçalho do jogo
-    printf("******************************************\n");
-    printf("* Bem vindo ao nosso jogo de adivinhação *\n");
-    printf("******************************************\n");
-
-    int numeroSecreto = 42;
-    int chute;
-    printf("chute: %d\n", chute);
     int tentativa = 1;
     double pontos = 1000;
     double pontosPerdidos = 0;
+    int segundos = time(0);
+    int numeroSecreto = rand()%100;
+    int maxTentativas;
+    int dificuldade;
+    int chute;
     
-    while (1){
+    // define a semente de rand() como o Unix time atual (time(0))
+    srand(segundos);
+
+    // imprime cabeçalho do jogo
+    printf("******************************************\n");
+    printf("* Bem vindo ao nosso jogo de adivinhação *\n");
+    printf("******************************************\n\n");
+
+    printf("Selecione a dificuldade: \n(1) Fácil\n(2) Médio\n(3) Difícil\n(4)GodMod");
+    scanf("%d", &dificuldade);
+
+    switch (dificuldade){
+        case 1:
+            maxTentativas = 9;
+            break;
+        case 2:
+            maxTentativas = 8;
+            break;
+        case 3:
+            maxTentativas = 7;
+        case 4:
+            maxTentativas = 5;
+        default:
+            printf("Número inválido");
+    }
+
+
+
+    for (int i = 0; i < maxTentativas; i++){
         printf("\nTentativa %d\n", tentativa);
         printf("Qual é o seu chute? ");
         scanf("%d", &chute);
@@ -54,6 +80,7 @@ int main()
             tentativa++;
         }
     }
+
 
     printf("\nFim de jogo!!\n");
 
