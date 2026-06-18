@@ -11,10 +11,11 @@ int main()
 
     int numeroSecreto = 42;
     int chute;
+    printf("chute: %d\n", chute);
     int tentativa = 1;
-    int pontos = 1000;
-    int pontosPerdidos = 0;
-
+    double pontos = 1000;
+    double pontosPerdidos = 0;
+    
     while (1){
         printf("\nTentativa %d\n", tentativa);
         printf("Qual é o seu chute? ");
@@ -31,7 +32,7 @@ int main()
         {
             pontos -= pontosPerdidos;
             printf("Parabéns, você acertou na %dª tentativa!\n\n", tentativa);
-            printf("Sua pontuação: %d\n", pontos);
+            printf("Sua pontuação: %.1f\n", pontos);
             printf("Jogue de novo, você é um bom jogador!\n");
             break;
         }
@@ -39,7 +40,7 @@ int main()
         {
             // Se chegou aqui, já sabemos que errou.
             printf("Você errou! ");
-            pontosPerdidos += (abs(chute-numeroSecreto)/2);
+            pontosPerdidos += (double)(abs(chute-numeroSecreto)/(double)2);
             if (chute > numeroSecreto)
             {
                 printf("O número secreto é menor\n");
