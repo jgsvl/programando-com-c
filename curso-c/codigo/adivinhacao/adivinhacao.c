@@ -22,7 +22,7 @@ int main()
     printf("* Bem vindo ao nosso jogo de adivinhação *\n");
     printf("******************************************\n\n");
 
-    printf("Selecione a dificuldade: \n(1) Fácil\n(2) Médio\n(3) Difícil\n(4)GodMod");
+    printf("Selecione a dificuldade: \n(1) Fácil\n(2) Médio\n(3) Difícil\n(4) GodMod\n");
     scanf("%d", &dificuldade);
 
     switch (dificuldade){
@@ -34,10 +34,13 @@ int main()
             break;
         case 3:
             maxTentativas = 7;
+            break;
         case 4:
             maxTentativas = 5;
+            break;
         default:
             printf("Número inválido");
+            break;
     }
 
 
