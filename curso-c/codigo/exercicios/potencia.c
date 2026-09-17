@@ -1,14 +1,15 @@
 #include <stdio.h>
 
-void potencia(int a, int b){
-    int resultado = 1;
+void potencia(int* pointer_resultado, int a, int b){
+    *pointer_resultado = 1;
     for (int i = 0; i < b; i++){
-        resultado = resultado * a;
+        *pointer_resultado = *pointer_resultado * a;
     }
 
-    printf("%d elevado a %d = %d\n", a, b, resultado);
+    printf("%d elevado a %d = %d\n", a, b, *pointer_resultado);
 }
 
 int main(){
-    potencia(3, 0);
+    int resultado;
+    potencia(&resultado, -3, 3);
 }
