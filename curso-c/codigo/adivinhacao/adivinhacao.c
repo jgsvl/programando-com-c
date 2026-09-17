@@ -8,14 +8,15 @@ int main()
     int tentativa = 1;
     double pontos = 1000;
     double pontosPerdidos = 0;
-    int segundos = time(0);
-    int numeroSecreto = rand()%100;
     int maxTentativas;
     int dificuldade;
     int chute;
     
+    int segundos = time(0);
     // define a semente de rand() como o Unix time atual (time(0))
     srand(segundos);
+    int numeroSecreto = rand()%100;
+
 
     // imprime cabeçalho do jogo
     printf("******************************************\n");
