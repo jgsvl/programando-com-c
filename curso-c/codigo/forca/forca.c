@@ -1,6 +1,10 @@
 #include <stdio.h>
 #include <string.h>
 
+char palavra[20];
+char chutes[26];
+int tentativas = 0;
+
 void abertura()
 {
     printf("********************************\n");
@@ -10,15 +14,15 @@ void abertura()
     printf("********************************\n\n");
 }
 
-void chuta(char chutes[26], int *tentativas)
+void chuta()
 {
     char chute;
     scanf(" %c", &chute);
-    chutes[(*tentativas)] = chute;
-    (*tentativas)++;
+    chutes[tentativas] = chute;
+    tentativas++;
 }
 
-int jachutou(char letra, char chutes[26], int tentativas)
+int jachutou(char letra)
 {
     int achou = 0;
     for (int j = 0; j < tentativas; j++)
@@ -32,38 +36,38 @@ int jachutou(char letra, char chutes[26], int tentativas)
     return achou;
 }
 
+void desenhaforca()
+{
+    for (int i = 0; i < strlen(palavra); i++)
+    {
+        int achou = jachutou(palavra[i]);
+        if (achou)
+        {
+            printf("%c ", palavra[i]);
+        }
+        else
+        {
+            printf("_ ");
+        }
+    }
+    printf("\n");
+}
+
+void escolhepalavra(){
+    sprintf(palavra, "melancia");
+}
+
 int main()
 {
-
-    char palavra[20];
-    char chutes[26];
-    int tentativas = 0;
-
-    abertura();
-
-    sprintf(palavra, "melancia");
-    printf("%s\n", palavra);
-
     int acertou = 0;
     int enforcou = 0;
 
+    abertura();
+    escolhepalavra();
+
     do
     {
-        for (int i = 0; i < strlen(palavra); i++)
-        {
-            int achou = jachutou(palavra[i], chutes, tentativas);
-            if (achou)
-            {
-                printf("%c ", palavra[i]);
-            }
-            else
-            {
-                printf("_ ");
-            }
-        }
-        printf("\n");
-
-        chuta(chutes, &tentativas);
-
+        desenhaforca();
+        chuta();
     } while (!acertou && !enforcou);
 }
